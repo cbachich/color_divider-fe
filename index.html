@@ -3,15 +3,37 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/custom.css">
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="vendor/javascript/angular.min.js"></script>
+    <script type="text/javascript" src="vendor/javascripts/angular.min.js"></script>
   </head>
   <body>
 
-    <div class="container-fluid">
+    <div class="container">
       <h1>Color Divider Playground</h1>
+      <div class="row">
+        <form role="form">
+          <div class="form-group col-md-4">
+            <label for="start-color">Start Color</label>
+            <input class="form-control" id="start-color" value="000000">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="middle-color">Middle Color</label>
+            <input class="form-control" id="middle-color" value="808080" disabled>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="end-color">End Color</label>
+            <input class="form-control" id="end-color" value="FFFFFF">
+          </div>
+        </form>
+      </div>
+      <div class="row">
+        <div class="color-box start-color-box col-md-4"></div>
+        <div class="color-box middle-color-box col-md-4"></div>
+        <div class="color-box end-color-box col-md-4"></div>
+      </div>
     </div>
 
   </body>
