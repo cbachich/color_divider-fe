@@ -2,15 +2,3 @@
   height: 100px;
   border: 1px solid black;
 }
-
-.start-color-box {
-  background-color: #000000;
-}
-
-.middle-color-box {
-  background-color: #808080;
-}
-
-.end-color-box {
-  background-color: #FFFFFF;
-}
