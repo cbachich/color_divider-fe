@@ -1,4 +1,12 @@
+.color-boxes {
+  padding-bottom: 10px;
+}
+
 .color-box {
   height: 100px;
   border: 1px solid black;
+}
+
+.control-label {
+  padding-top: 8px;
 }
