@@ -15,28 +15,37 @@
     <div class="container">
       <h1>Color Divider Playground</h1>
       <div class="row color-boxes">
-        <div class="color-box col-md-4" style="background-color: {{color.start}}"></div>
-        <div class="color-box col-md-4" style="background-color: {{color.middle}}"></div>
-        <div class="color-box col-md-4" style="background-color: {{color.end}}"></div>
+        <div class="color-box col-md-4" style="background-color: #{{color.start}}"></div>
+        <div class="color-box col-md-4" style="background-color: #{{color.middle}}"></div>
+        <div class="color-box col-md-4" style="background-color: #{{color.end}}"></div>
       </div>
       <div class="row">
         <form role="form-horizontal">
           <div class="form-group col-md-4">
             <label class="col-md-4 control-label" for="start-color">Start Color</label>
             <div class="col-md-8">
-              <input class="form-control" id="start-color" ng-model="color.start">
+              <div class="input-group">
+                <div class="input-group-addon">#</div>
+                <input class="form-control" id="start-color" ng-model="color.start" ng-change="color.startChanged()">
+              </div>
             </div>
           </div>
           <div class="form-group col-md-4">
             <label class="col-md-4 control-label" for="middle-color">Middle Color</label>
             <div class="col-md-8">
-              <input class="form-control" id="middle-color" value="{{color.middle}}" disabled>
+              <div class="input-group">
+                <div class="input-group-addon">#</div>
+                <input class="form-control" id="middle-color" value="{{color.middle}}" disabled>
+              </div>
             </div>
           </div>
           <div class="form-group col-md-4">
             <label class="col-md-4 control-label" for="end-color">End Color</label>
             <div class="col-md-8">
-              <input class="form-control" id="end-color" ng-model="color.end">
+              <div class="input-group">
+                <div class="input-group-addon">#</div>
+                <input class="form-control" id="end-color" ng-model="color.end">
+              </div>
             </div>
           </div>
         </form>
