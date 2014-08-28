@@ -13,7 +13,7 @@
     color.middle = "808080";
     color.end = "FFFFFF";
 
-    this.startChanged = function() {
+    this.inputChanged = function() {
       if (!properInputSizes()) return;
 
       var call = "http://color-divider.herokuapp.com/middle_color?start_color=%23" + color.start + "&end_color=%23" + color.end;

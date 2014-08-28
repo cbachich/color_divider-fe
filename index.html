@@ -26,7 +26,7 @@
             <div class="col-xs-7 col-md-8">
               <div class="input-group">
                 <div class="input-group-addon">#</div>
-		<input class="form-control" id="start-color" ng-model="color.start" ng-change="color.startChanged()">
+		<input class="form-control" id="start-color" ng-model="color.start" ng-change="color.inputChanged()">
 	      </div>
             </div>
           </div>
@@ -44,7 +44,7 @@
             <div class="col-xs-7 col-md-8">
               <div class="input-group">
                 <div class="input-group-addon">#</div>
-                <input class="form-control" id="end-color" ng-model="color.end">
+                <input class="form-control" id="end-color" ng-model="color.end" ng-change="color.inputChanged()">
               </div>
             </div>
           </div>
