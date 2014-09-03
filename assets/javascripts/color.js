@@ -1,12 +1,13 @@
 (function(){
-  var app = angular.module('color', []);
 
-  app.config(['$httpProvider', function($httpProvider) {
+  angular.module('color', [])
+
+  .config(['$httpProvider', function($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
-  }]);
+  }])
 
-  app.controller('ColorController', [ '$http', function($http) {
+  .controller('ColorController', [ '$http', function($http) {
     var color = this;
 
     color.start = "000000";
