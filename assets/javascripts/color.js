@@ -10,23 +10,24 @@
   .controller('ColorController', [ '$http', function($http) {
     var color = this;
 
-    color.start  = { label: "Start",  hex: "000000", actionable: true };
-    color.middle = { label: "Middle", hex: "808080", actionable: false };
-    color.end    = { label: "End",    hex: "FFFFFF", actionable: true };
+    color.inputs = {
+      end: { label: "end",  hex: "FFFFFF", actionable: true },
+      middle: { label: "middle", hex: "808080", actionable: false },
+      start: { label: "start",    hex: "000000", actionable: true }
+    };
 
     color.inputChanged = function() {
-      if (!properInputSizes()) return;
+      if (!colorInputsGood()) return;
 
-      var call = "http://color-divider.herokuapp.com/middle_color?start_color=%23" + color.start.hex + "&end_color=%23" + color.end.hex;
-      console.log(call);
+      var call = "http://color-divider.herokuapp.com/middle_color?start_color=%23" + color.inputs.start.hex + "&end_color=%23" + color.inputs.end.hex;
 
       $http.get(call).success(function(data){
-        color.middle.hex = data.substr(1);
+        color.inputs.middle.hex = data.substr(1);
       });
     }
 
-    function properInputSizes() {
-      return colorInputCheck(color.start.hex) && colorInputCheck(color.end.hex);
+    function colorInputsGood() {
+      return colorInputCheck(color.inputs.start.hex) && colorInputCheck(color.inputs.end.hex);
     }
 
     function colorInputCheck(color) {

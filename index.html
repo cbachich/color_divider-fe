@@ -13,17 +13,21 @@
   <body ng-controller="ColorController as color">
 
     <div class="container">
+
       <h1>Color Divider Playground</h1>
+
+      <!-- Colored Boxes Row -->
       <div class="row color-boxes">
-        <div class="color-box col-xs-4" style="background-color: #{{color.start.hex}}"></div>
-        <div class="color-box col-xs-4" style="background-color: #{{color.middle.hex}}"></div>
-        <div class="color-box col-xs-4" style="background-color: #{{color.end.hex}}"></div>
+        <div class="color-box col-xs-4" ng-repeat="input in color.inputs" style="background-color: #{{input.hex}}"></div>
       </div>
+
+      <!-- Color Inputs Row -->
       <div class="row">
         <form role="form-horizontal">
-          <action-box></action-box>
+          <action-box ng-repeat="input in color.inputs"></action-box>
         </form>
       </div>
+
     </div>
 
   </body>
