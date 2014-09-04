@@ -10,22 +10,34 @@
   .controller('ColorController', [ '$http', function($http) {
     var color = this;
 
-    color.start = "000000";
-    color.middle = "808080";
-    color.end = "FFFFFF";
+    color.start  = { label: "Start",  hex: "000000", actionable: true };
+    color.middle = { label: "Middle", hex: "808080", actionable: false };
+    color.end    = { label: "End",    hex: "FFFFFF", actionable: true };
 
-    this.inputChanged = function() {
+    color.inputChanged = function() {
       if (!properInputSizes()) return;
 
-      var call = "http://color-divider.herokuapp.com/middle_color?start_color=%23" + color.start + "&end_color=%23" + color.end;
+      var call = "http://color-divider.herokuapp.com/middle_color?start_color=%23" + color.start.hex + "&end_color=%23" + color.end.hex;
+      console.log(call);
 
       $http.get(call).success(function(data){
-        color.middle = data.substr(1);
+        color.middle.hex = data.substr(1);
       });
     }
 
     function properInputSizes() {
-      return (color.start.length == 3 || color.start.length == 6) && /^([0-9a-fA-F]+)$/.test(color.start) && (color.end.length == 3 || color.end.length == 6) && /^([0-9a-fA-F]+)$/.test(color.end);
+      return colorInputCheck(color.start.hex) && colorInputCheck(color.end.hex);
     }
-  }]);
+
+    function colorInputCheck(color) {
+      return (color.length == 3 || color.length == 6) && /^([0-9a-fA-F]+)$/.test(color);
+    }
+  }])
+
+  .directive('actionBox', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'action-box.html'
+    };
+  });
 })();

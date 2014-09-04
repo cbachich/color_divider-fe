@@ -1,0 +1,9 @@
+<div class="form-group col-xs-12 col-md-4">
+  <label class="col-xs-5 col-md-4 control-label" for="start-color">{{color.start.label}} Color</label>
+  <div class="col-xs-7 col-md-8">
+    <div class="input-group">
+      <div class="input-group-addon">#</div>
+  		<input class="form-control" id="start-color" ng-model="color.start.hex" ng-change="color.inputChanged()" ng-disabled="!color.start.actionable">
+    </div>
+  </div>
+</div
